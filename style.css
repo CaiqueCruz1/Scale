@@ -14,8 +14,7 @@
     --headline: hsla(0, 0%, 53%, 1);
     --button-color: hsla(0, 0%, 8%, 1);
 
-    --font-family-1: 'Aileron'
-    ;
+    --font-family-1: 'Aileron';
     --font-family-2: 'Space Grotesk';
 
     --bg-dark: hsla(0, 0%, 8%, 1);
@@ -58,4 +57,31 @@ ul {
 
 img {
     max-width: 100%;
+}
+
+/*===NAVIGATION================================================================================================*/
+
+nav {
+    display: flex;
+    height: var(--nav-height);
+    position: fixed;
+    top: 0;
+    width: 100vw;
+
+    z-index: 100;
+}
+
+nav .wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+nav.scroll {
+    background-color: var(--primary-color);
+}
+
+/*===MENU===========================================================*/
+.menu {
+    display: none;
 }
