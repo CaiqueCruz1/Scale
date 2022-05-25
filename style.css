@@ -62,23 +62,6 @@ img {
     max-width: 100%;
 }
 
-/*===ROTATION================================================================================================*/
-@keyframes square {
-    from {
-        transform: rotate(0deg);
-    }
-
-    to {
-        transform: rotate(360deg);
-    }
-
-}
-
-nav .logo path:nth-child(1) {
-    animation: square 1.5s linear infinite;
-
-
-}
 
 /*===NAVIGATION================================================================================================*/
 nav {
@@ -91,6 +74,9 @@ nav {
     z-index: 100;
 
     background-color: var(--bg-dark);
+
+    transition-property: background-color;
+    transition-duration: 0.5s;
 
 }
 
