@@ -39,6 +39,9 @@ body {
     font-size: 1.6rem;
     overflow: overlay;
     background: var(--bg-dark);
+
+    /*4.1rem para não ficar colado com o "nav"*/
+    padding-top: calc(4.1rem + var(--nav-height));
 }
 
 .wrapper {
@@ -59,8 +62,25 @@ img {
     max-width: 100%;
 }
 
-/*===NAVIGATION================================================================================================*/
+/*===ROTATION================================================================================================*/
+@keyframes square {
+    from {
+        transform: rotate(0deg);
+    }
 
+    to {
+        transform: rotate(360deg);
+    }
+
+}
+
+nav .logo path:nth-child(1) {
+    animation: square 1.5s linear infinite;
+
+
+}
+
+/*===NAVIGATION================================================================================================*/
 nav {
     display: flex;
     height: var(--nav-height);
@@ -69,6 +89,9 @@ nav {
     width: 100vw;
 
     z-index: 100;
+
+    background-color: var(--bg-dark);
+
 }
 
 nav .wrapper {
@@ -79,6 +102,19 @@ nav .wrapper {
 
 nav.scroll {
     background-color: var(--primary-color);
+}
+
+nav.scroll .logo path,
+nav.scroll .logo circle {
+    stroke: var(--button-color);
+}
+
+nav.scroll .logo path {
+    fill: var(--button-color);
+}
+
+nav.scroll path {
+    stroke: var(--button-color);
 }
 
 /*===MENU===========================================================*/
