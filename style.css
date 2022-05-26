@@ -62,8 +62,34 @@ img {
     max-width: 100%;
 }
 
+/*===ROTATION================================================================================================*/
+
+@keyframes rotation {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+
+    /*Ainda não está girando 100% em seu próprio eixo, verificar como colocar o "transform: translateY(0px);" "from/to "*/
+}
+
+.logo-square {
+    animation: rotation 2.5s linear infinite;
+    animation-delay: 0.4s;
+    margin-right: 0.4rem;
+}
 
 /*===NAVIGATION================================================================================================*/
+
+.logo-square,
+.logo-scale {
+    display: inline-block;
+}
+
+
 nav {
     display: flex;
     height: var(--nav-height);
@@ -102,6 +128,8 @@ nav.scroll .logo path {
 nav.scroll path {
     stroke: var(--button-color);
 }
+
+
 
 /*===MENU===========================================================*/
 .menu {
