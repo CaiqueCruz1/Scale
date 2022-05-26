@@ -47,11 +47,11 @@ body {
 .wrapper {
     /*Guardando o código para ser usado posteriormente*/
     width: min(50rem, 100%);
-    ;
+
     padding-inline: 2.4rem;
-    ;
+
     margin-inline: auto;
-    ;
+
 }
 
 ul {
@@ -131,7 +131,52 @@ nav.scroll path {
 
 
 
+/*===MENU-NO-EXPANDED========================================================================================================================*/
+
+
 /*===MENU===========================================================*/
-.menu {
-    display: none;
+
+/*===MENU-EXPANDED========================================================================================================================*/
+
+body.menu-expanded {
+    overflow: hidden;
+}
+
+.menu,
+.close-menu,
+body.menu-expanded .open-menu {
+    opacity: 0;
+    overflow: hidden;
+}
+
+body.menu-expanded .close-menu,
+body.menu-expanded .menu {
+    opacity: 1;
+    overflow: visible;
+}
+
+body.menu-expanded .menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: var(--primary-color);
+
+    width: 100vw;
+    height: 100vh;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+
+body.menu-expanded .menu ul {
+    flex-direction: column;
+    display: flex;
+    gap: 4rem;
+    align-items: center;
+}
+
+body.menu-expanded nav {
+    position: relative;
 }
