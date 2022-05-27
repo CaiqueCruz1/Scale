@@ -54,6 +54,10 @@ body {
 
 }
 
+a {
+    text-decoration: none;
+}
+
 ul {
     list-style: none;
 }
@@ -129,13 +133,6 @@ nav.scroll path {
     stroke: var(--button-color);
 }
 
-
-
-/*===MENU-NO-EXPANDED========================================================================================================================*/
-
-
-/*===MENU===========================================================*/
-
 /*===MENU-EXPANDED========================================================================================================================*/
 
 body.menu-expanded {
@@ -170,13 +167,48 @@ body.menu-expanded .menu {
 
 }
 
+body.menu-expanded .menu ul:nth-child(1) {
+    display: flex;
+    flex-direction: row;
+    gap: 2rem;
+
+}
+
 body.menu-expanded .menu ul {
     flex-direction: column;
     display: flex;
-    gap: 4rem;
     align-items: center;
+
+    gap: 4rem;
+    font-weight: 700;
+    padding-top: 6rem;
+    font-size: 2.4rem;
+    line-height: 3.1rem;
+    font-family: var(--font-family-2);
+
+}
+
+body.menu-expanded .menu ul li a {
+    color: var(--button-color);
 }
 
 body.menu-expanded nav {
     position: relative;
+}
+
+/*----------*/
+body.menu-expanded .logo-conteiner {
+    position: fixed;
+    z-index: 1;
+    top: 0;
+}
+
+body.menu-expanded .close-menu {
+    display: flex;
+    align-items: flex-end;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+
+    right: 0;
 }
