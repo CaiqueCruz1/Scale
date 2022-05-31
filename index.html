@@ -12,7 +12,7 @@
     />
     <title>Scale</title>
   </head>
-  <body onscroll="showNavOnScroll()" class="menu-expanded">
+  <body onscroll="showNavOnScroll()">
     <header>
       <nav id="navigation">
         <div class="wrapper">
@@ -79,18 +79,35 @@
 
           <div class="menu">
             <ul>
-              <li><a onclick="closeMenu()" href="#home">Log in</a></li>
-              <li><a onclick="closeMenu()" href="#services">Join now</a></li>
+              <li><a href="#">Log in</a></li>
+              <li><a href="#">Join now</a></li>
             </ul>
             <ul>
-              <li><a onclick="closeMenu()" href="#home">Home</a></li>
-              <li><a onclick="closeMenu()" href="#services">Resources</a></li>
-              <li><a onclick="closeMenu()" href="#about">FAQs</a></li>
-              <li><a onclick="closeMenu()" href="#about">Blog</a></li>
+              <li><a href="#home">Home</a></li>
+              <li><a href="#">Resources</a></li>
+              <li><a href="#">FAQs</a></li>
+              <li><a href="#">Blog</a></li>
             </ul>
           </div>
+
+          <div class="menu-desktop">
+            <ul>
+              <li><a href="#home">Home</a></li>
+              <li><a href="#">Resources</a></li>
+              <li><a href="#">FAQs</a></li>
+              <li><a href="#">Blog</a></li>
+            </ul>
+          </div>
+
+          <div class="login">
+            <ul>
+              <li><a href="#">Log in</a></li>
+              <li><a href="#">Join now</a></li>
+            </ul>
+          </div>
+
           <!--Botão-Menu-->
-          <a class="open-menu">
+          <a onclick="openMenu()" class="open-menu">
             <svg
               width="40"
               height="40"
@@ -122,7 +139,7 @@
             </svg>
           </a>
 
-          <a class="close-menu">
+          <a onclick="closeMenu()" class="close-menu">
             <svg
               width="40"
               height="40"

@@ -66,6 +66,11 @@ img {
     max-width: 100%;
 }
 
+.menu-desktop,
+.login {
+    display: none;
+}
+
 /*===ROTATION================================================================================================*/
 
 @keyframes rotation {
@@ -93,6 +98,10 @@ img {
     display: inline-block;
 }
 
+.open-menu,
+.close-menu {
+    cursor: pointer;
+}
 
 nav {
     display: flex;
@@ -139,11 +148,19 @@ body.menu-expanded {
     overflow: hidden;
 }
 
+body.menu-expanded> :not(header) {
+    display: none;
+}
+
 .menu,
 .close-menu,
 body.menu-expanded .open-menu {
     opacity: 0;
     overflow: hidden;
+}
+
+.close-menu {
+    position: fixed;
 }
 
 body.menu-expanded .close-menu,
@@ -171,6 +188,8 @@ body.menu-expanded .menu ul:nth-child(1) {
     display: flex;
     flex-direction: row;
     gap: 2rem;
+    padding-top: calc(4.1rem + var(--nav-height));
+    padding-bottom: 3rem;
 
 }
 
@@ -179,9 +198,8 @@ body.menu-expanded .menu ul {
     display: flex;
     align-items: center;
 
-    gap: 4rem;
+    gap: 3rem;
     font-weight: 700;
-    padding-top: 6rem;
     font-size: 2.4rem;
     line-height: 3.1rem;
     font-family: var(--font-family-2);
@@ -192,23 +210,59 @@ body.menu-expanded .menu ul li a {
     color: var(--button-color);
 }
 
-body.menu-expanded nav {
-    position: relative;
-}
-
-/*----------*/
-body.menu-expanded .logo-conteiner {
-    position: fixed;
-    z-index: 1;
-    top: 0;
-}
-
+body.menu-expanded .logo,
 body.menu-expanded .close-menu {
-    display: flex;
-    align-items: flex-end;
-    position: fixed;
-    z-index: 1;
-    top: 0;
+    position: relative;
+    z-index: 101;
+}
 
-    right: 0;
+body.menu-expanded .logo path,
+body.menu-expanded .logo circle {
+    stroke: var(--button-color);
+}
+
+body.menu-expanded .logo path {
+    fill: var(--button-color);
+}
+
+body.menu-expanded path {
+    stroke: var(--button-color);
+}
+
+@media (min-width:768px) {
+
+    .open-menu,
+    .close-menu,
+    .menu,
+    {
+    display: none;
+}
+
+.wrapper {
+    width: 100%;
+    padding-inline: 8rem;
+    display: flex;
+    justify-content: space-between;
+}
+
+.menu-desktop,
+.login {
+    display: flex;
+
+}
+
+.menu-desktop ul,
+.login ul {
+    display: flex;
+    flex-direction: row;
+}
+
+.menu-desktop ul {
+    gap: 2rem;
+}
+
+.login ul {
+    gap: 1.5rem;
+}
+
 }
