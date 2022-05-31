@@ -14,8 +14,7 @@
     --headline: hsla(0, 0%, 53%, 1);
     --button-color: hsla(0, 0%, 8%, 1);
 
-    --font-family-1: 'Aileron'
-    ;
+    --font-family-1: 'Aileron';
     --font-family-2: 'Space Grotesk';
 
     --bg-dark: hsla(0, 0%, 8%, 1);
@@ -40,16 +39,23 @@ body {
     font-size: 1.6rem;
     overflow: overlay;
     background: var(--bg-dark);
+
+    /*4.1rem para não ficar colado com o "nav"*/
+    padding-top: calc(4.1rem + var(--nav-height));
 }
 
 .wrapper {
     /*Guardando o código para ser usado posteriormente*/
     width: min(50rem, 100%);
-    ;
+
     padding-inline: 2.4rem;
-    ;
+
     margin-inline: auto;
-    ;
+
+}
+
+a {
+    text-decoration: none;
 }
 
 ul {
@@ -58,4 +64,205 @@ ul {
 
 img {
     max-width: 100%;
+}
+
+.menu-desktop,
+.login {
+    display: none;
+}
+
+/*===ROTATION================================================================================================*/
+
+@keyframes rotation {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+
+    /*Ainda não está girando 100% em seu próprio eixo, verificar como colocar o "transform: translateY(0px);" "from/to "*/
+}
+
+.logo-square {
+    animation: rotation 2.5s linear infinite;
+    animation-delay: 0.4s;
+    margin-right: 0.4rem;
+}
+
+/*===NAVIGATION================================================================================================*/
+
+.logo-square,
+.logo-scale {
+    display: inline-block;
+}
+
+.open-menu,
+.close-menu {
+    cursor: pointer;
+}
+
+nav {
+    display: flex;
+    height: var(--nav-height);
+    position: fixed;
+    top: 0;
+    width: 100vw;
+
+    z-index: 100;
+
+    background-color: var(--bg-dark);
+
+    transition-property: background-color;
+    transition-duration: 0.5s;
+
+}
+
+nav .wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+nav.scroll {
+    background-color: var(--primary-color);
+}
+
+nav.scroll .logo path,
+nav.scroll .logo circle {
+    stroke: var(--button-color);
+}
+
+nav.scroll .logo path {
+    fill: var(--button-color);
+}
+
+nav.scroll path {
+    stroke: var(--button-color);
+}
+
+/*===MENU-EXPANDED========================================================================================================================*/
+
+body.menu-expanded {
+    overflow: hidden;
+}
+
+body.menu-expanded> :not(header) {
+    display: none;
+}
+
+.menu,
+.close-menu,
+body.menu-expanded .open-menu {
+    opacity: 0;
+    overflow: hidden;
+}
+
+.close-menu {
+    position: fixed;
+}
+
+body.menu-expanded .close-menu,
+body.menu-expanded .menu {
+    opacity: 1;
+    overflow: visible;
+}
+
+body.menu-expanded .menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: var(--primary-color);
+
+    width: 100vw;
+    height: 100vh;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+
+body.menu-expanded .menu ul:nth-child(1) {
+    display: flex;
+    flex-direction: row;
+    gap: 2rem;
+    padding-top: calc(4.1rem + var(--nav-height));
+    padding-bottom: 3rem;
+
+}
+
+body.menu-expanded .menu ul {
+    flex-direction: column;
+    display: flex;
+    align-items: center;
+
+    gap: 3rem;
+    font-weight: 700;
+    font-size: 2.4rem;
+    line-height: 3.1rem;
+    font-family: var(--font-family-2);
+
+}
+
+body.menu-expanded .menu ul li a {
+    color: var(--button-color);
+}
+
+body.menu-expanded .logo,
+body.menu-expanded .close-menu {
+    position: relative;
+    z-index: 101;
+}
+
+body.menu-expanded .logo path,
+body.menu-expanded .logo circle {
+    stroke: var(--button-color);
+}
+
+body.menu-expanded .logo path {
+    fill: var(--button-color);
+}
+
+body.menu-expanded path {
+    stroke: var(--button-color);
+}
+
+@media (min-width:768px) {
+
+    .open-menu,
+    .close-menu,
+    .menu,
+    {
+    display: none;
+}
+
+.wrapper {
+    width: 100%;
+    padding-inline: 8rem;
+    display: flex;
+    justify-content: space-between;
+}
+
+.menu-desktop,
+.login {
+    display: flex;
+
+}
+
+.menu-desktop ul,
+.login ul {
+    display: flex;
+    flex-direction: row;
+}
+
+.menu-desktop ul {
+    gap: 2rem;
+}
+
+.login ul {
+    gap: 1.5rem;
+}
+
 }
